@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const config = require('config')
 const mongoose = require('mongoose');
+var debug = require('debug')('%&projectname&%:app');
 
 //ROUTERS
 const indexRouter = require('./routes/index');
@@ -13,11 +14,11 @@ const usersRouter = require('./routes/users');
 mongoose.connect(config.get('db.url'), config.get('db.options'));
 var db = mongoose.connection;
 db.on('error', function () {
-  console.error.bind(console, 'Erreur lors de la connexion')
+  console.error.bind(console, 'Database connection error')
   process.exit(1);
 });
 db.once('open', function () {
-  console.log("Connexion à la base OK");
+  debug("Database connection successful");
 });
 
 //APP
