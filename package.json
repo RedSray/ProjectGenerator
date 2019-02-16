@@ -1,0 +1,19 @@
+{
+  "name": "projectgenerator",
+  "version": "1.0.0",
+  "description": "my personal project generator",
+  "main": "generator.js",
+  "bin": {
+    "generate": "./generator.js"
+  },
+  "dependencies": {
+    "inquirer": "^6.2.2",
+    "replace-in-files": "^1.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node generator"
+  },
+  "author": "redsray",
+  "license": "ISC"
+}
