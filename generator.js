@@ -35,6 +35,7 @@ inquirer.prompt(QUESTIONS)
     fs.mkdirSync(`${CURR_DIR}/${projectName}`);
 
     const files = createDirectoryContents(templatePath, projectName);
+    console.log(files)
     const options = {
       files: files,
 
@@ -71,7 +72,8 @@ function createDirectoryContents (templatePath, newProjectPath) {
       fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
 
       // recursive call
-      createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
+      var subfiles = createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
+      files = files.concat(subfiles);
     }
   });
 
